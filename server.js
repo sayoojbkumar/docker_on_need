@@ -13,7 +13,7 @@ server.listen(8080, function() {
 });
 
 function dealocate() {
-    var command1="docker ps | awk '{print $1,$4,$5}'|grep -i 'minutes'"
+    var command1="sudo docker ps | awk '{print $1,$4,$5}'|grep -i 'minutes'"
     exec(command1,(err,stdout)=>{
         var s=stdout.split("\n")
         console.log(s)
@@ -22,7 +22,7 @@ function dealocate() {
                 var dockerid=s[i].slice(0,12)
                 var time=s[i].slice(13,15)
                 if(time>15){
-                    var command2=`docker rm --force ${dockerid}`
+                    var command2=`sudo docker rm --force ${dockerid}`
                     console.log(command2)
                     try{
                         exec(command2,(stdout)=>{
@@ -41,7 +41,7 @@ function dealocate() {
 
 function deploy(){
     console.log("deployment code here")
-    var command=`docker run -p ${port}:8088 testdeploy:latest`
+    var command=`sudo docker run -p ${port}:8088 testdeploy:latest`
     console.log(port)
     port=port+1
     exec(command, (err, stdout, stderr) => {
@@ -92,7 +92,7 @@ function handleConnection(conn) {
         conn.write("\n...........................................deploying your instance ...........................................\n")
         deploy()
         conn.write("\n wait for few seconds to get deployed your challenge will be visible at is\n")
-        conn.write("\n yourhost:"+port)
+        conn.write("\n yourhost:"+port-1)
     }
     else{
         conn.write("\n wrong answer :( \n")
