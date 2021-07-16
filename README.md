@@ -3,7 +3,7 @@ seperate docker deploying server made for ctf's
 
 ## Requirements
 
-1. install node,npm and docker on server
+1. install node,npm and docker on server `Docker - sudo apt  install docker.io`
 2. run `npm install`
 3. place your challenge in server
 4. build ur challenge docker which u want to deploy eg: `docker build -t name .` 
