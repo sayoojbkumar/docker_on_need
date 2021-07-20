@@ -104,6 +104,7 @@ function handleConnection(conn) {
   console.log(test[0])
   console.log(test[1])
   answers[conn.remoteAddress]=test[0]
+  console.log(answers)
   console.log(answers[conn.remoteAddress])
   conn.write("\n answer the folowing get docker deployed\n");
   conn.write('\n '+test[1]+' ?'+'\n')
