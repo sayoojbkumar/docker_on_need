@@ -117,6 +117,7 @@ function handleConnection(conn) {
   function onConnData(d) {  
     console.log('connection data from %s: %j', remoteAddress, d);
     if(d==answers[conn.remoteAddress]){
+        delete answers[conn.remoteAddress]
         conn.write("\n...........................................deploying your instance ...........................................\n")
         deploy()
         conn.write("\n wait for few seconds to get deployed your challenge will be visible at is\n")
