@@ -5,14 +5,16 @@ seperate docker deploying server made for ctf's
 
 1. install node,npm and docker on server `Docker - sudo apt  install docker.io`
 2. run `npm install`
-3. place your challenge in server
-4. build ur challenge docker which u want to deploy eg: `docker build -t name .` 
-5. open port in server from 49152-65535
+3. place your challenge/app that you wanted to deploy in server
+4. open port in server from 49152-65535
+5. node server.js /path-to-folder-containing-dockerfile  `eg: node server.js app/`
 
 ## make changes in server.js
 
-1. `function deploy()` `docker run -p ${port}:"ur docker port" "your docker name that u builded"`
-2. `function onConnData(d)`  `conn.write("\n place-your-host-here:"+port)`
+1. var local_port = "to your docker localport"
+2. var port = "the port where deployer run"
+3. const docker_name="name of docker"
+4. var hostname="the host where challenge gona be up"
 
 
 ## functionalities
