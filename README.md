@@ -22,4 +22,17 @@ seperate docker deploying server made for ctf's
 1. delete docker after 15 mins(can be controlled)
 
 
+## Systemd
+```
+[Unit]
+Description="node service"
+
+[Service]
+User=azureuser
+WorkingDirectory=/
+ExecStart=/usr/bin/node /path/server.js app/
+
+[Install]
+WantedBy=multi-user.target
+```
 
